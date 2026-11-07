@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can We Get to Know Each Other? 💗</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Mali', sans-serif;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(
+                135deg,
+                #ffe1ed,
+                #ffd1e5,
+                #fff0f6
+            );
+        }
+
+        /* Background decorations */
+
+        .decoration {
+            position: absolute;
+            font-size: 35px;
+            animation: float 3s ease-in-out infinite;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .heart1 { top: 10%; left: 10%; }
+        .heart2 { top: 20%; right: 12%; animation-delay: 1s; }
+        .star1 { bottom: 15%; left: 15%; animation-delay: .5s; }
+        .star2 { bottom: 20%; right: 15%; animation-delay: 1.5s; }
+        .heart3 { top: 75%; left: 5%; animation-delay: .8s; }
+        .heart4 { top: 65%; right: 5%; animation-delay: .3s; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(-10deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(10deg);
+            }
+        }
+
+        /* Main card */
+
+        .container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            min-height: 430px;
+            background: rgba(255, 255, 255, 0.88);
+            border: 5px solid #ff9fc5;
+            border-radius: 40px;
+            box-shadow: 0 15px 0 #f8b6d0,
+                        0 20px 40px rgba(222, 91, 146, .2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 45px 25px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        /* Cute characters */
+
+        .characters {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 85px;
+            margin-top: -100px;
+            margin-bottom: 20px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            color: #ad496f;
+            font-size: clamp(25px, 5vw, 42px);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #d987a9;
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        /* Buttons */
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            width: 100%;
+            min-height: 85px;
+        }
+
+        button {
+            font-family: 'Mali', sans-serif;
+            font-size: 21px;
+            font-weight: 700;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        #yesBtn {
+            color: white;
+            background: linear-gradient(135deg, #ff6fa5, #ed4f8e);
+            box-shadow: 0 7px 0 #d83f7a;
+        }
+
+        #yesBtn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 0 #d83f7a;
+        }
+
+        #noBtn {
+            color: white;
+            background: linear-gradient(135deg, #ffafd0, #f78eb9);
+            box-shadow: 0 7px 0 #e77da9;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Result message */
+
+        .result {
+            display: none;
+            animation: appear .6s ease;
+        }
+
+        .result h2 {
+            color: #ed5d96;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .result p {
+            color: #bd7190;
+            font-size: 17px;
+        }
+
+        .result .emoji {
+            font-size: 85px;
+            margin-bottom: 15px;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: scale(.7);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+            .container {
+                min-height: 400px;
+                padding: 35px 15px;
+                border-radius: 30px;
+            }
+
+            .characters {
+                font-size: 65px;
+                margin-top: -75px;
+            }
+
+            .buttons {
+                gap: 20px;
+            }
+
+            button {
+                font-size: 17px;
+                padding: 13px 25px;
+            }
+
+            .subtitle {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Decorations -->
+
+    <div class="decoration heart1">💗</div>
+    <div class="decoration heart2">💕</div>
+    <div class="decoration star1">⭐</div>
+    <div class="decoration star2">🌸</div>
+    <div class="decoration heart3">💖</div>
+    <div class="decoration heart4">✨</div>
+
+    <!-- Main content -->
+
+    <main class="container">
+
+        <div class="characters">
+            <span>🐱</span>
+            <span>🐰</span>
+        </div>
+
+        <div id="question">
+
+            <h1>ทำความรู้จักได้ไหม ? 💗</h1>
+
+            <p class="subtitle">
+                อยากรู้จักเธอมากกว่านี้จังเลย ♡
+            </p>
+
+            <div class="buttons">
+
+                <button id="yesBtn">
+                    💗 ได้เลย!
+                </button>
+
+                <button id="noBtn">
+                    ไม่ได้ค่ะ 🙈
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Success message -->
+
+        <div class="result" id="result">
+
+            <div class="emoji">🥰💗</div>
+
+            <h2>เย้!! ดีใจที่สุดเลย</h2>
+
+            <p>
+                งั้นเรามาทำความรู้จักกันนะ ♡
+                <br>
+                ฝากเนื้อฝากตัวด้วยนะคะ 💕
+            </p>
+
+        </div>
+
+    </main>
+
+    <script>
+
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+
+        const question = document.getElementById('question');
+        const result = document.getElementById('result');
+
+        // ปุ่มไม่ได้ หนีเมาส์
+
+        function moveButton() {
+
+            const padding = 20;
+
+            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+            const randomX = Math.max(
+                padding,
+                Math.random() * maxX
+            );
+
+            const randomY = Math.max(
+                padding,
+                Math.random() * maxY
+            );
+
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+
+        }
+
+        noBtn.addEventListener('mouseenter', moveButton);
+
+        // รองรับมือถือ
+
+        noBtn.addEventListener('touchstart', (event) => {
+            event.preventDefault();
+            moveButton();
+        });
+
+        // เมื่อกดปุ่มได้เลย
+
+
+// เมื่อกดปุ่มได้เลย
+    yesBtn.addEventListener('click', () => {
+
+        // ซ่อนหน้าคำถาม
+        question.style.display = 'none';
+
+        // ซ่อนปุ่มไม่ได้
+        noBtn.style.display = 'none';
+
+        // แสดงข้อความดีใจ
+        result.style.display = 'block';
+
+        // รอ 2 วินาที แล้วไป Instagram
+        setTimeout(() => {
+
+            window.location.href = 'https://www.instagram.com/phukao.dev/';
+
+        }, 2000);
+
+    });
+
+
+    </script>
+
+</body>
+</html>
